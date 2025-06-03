@@ -11,11 +11,12 @@ BATCH_SIZE = 64
 TARGET_UPDATE_FREQ = 10
 
 def train():
-    from beergame_env import SimpleBeerGame
+from beergame_env import SimpleBeerGame
 
-    env = SimpleBeerGame(train_agent_index=0)
-    obs_dim = env.observation_space.shape[0]
-    act_dim = env.action_space.n
+env = SimpleBeerGame(train_agent_index=0)
+obs_dim = env.observation_space.shape[0]
+act_dim = env.action_space.n
+
 
     agent = DQNAgent(obs_dim, act_dim)
     buffer = ReplayBuffer()

@@ -18,6 +18,7 @@ def train():
     act_dim = env.action_space.n
 
     agent = DQNAgent(obs_dim, act_dim)
+        agent = DQNAgent(obs_dim, act_dim)
     buffer = ReplayBuffer()
 
     rewards = []
