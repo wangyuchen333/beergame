@@ -591,4 +591,3 @@ if __name__ == "__main__":
     
     # 绘制测试结果
     plot_test_results(test_scores, inventory_history, orders_history, demand_history, satisfied_demand_history)
-    

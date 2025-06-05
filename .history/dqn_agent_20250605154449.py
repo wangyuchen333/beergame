@@ -1,14 +1,14 @@
-import numpy as np
-import matplotlib.pyplot as plt
-import torch
-import torch.nn as nn
-import torch.optim as optim
-import random
-from collections import deque
-import os
+def base_stock_policy(inventory, target_inventory):
+    """
+    Base-stock策略：根据当前库存和目标库存计算订单量。
+    
+    :param inventory: 当前库存
+    :param target_inventory: 目标库存
+    :return: 订单量
+    """
+    return max(0, target_inventory - inventory)
 
-# 复制环境类
-class Env:
+def train_dqn_with_basestock(env, agent, num_episodes=1000, max_t=100, eps_start=1.0, eps_end=0.01, eps_decay=0.995, base_stock_target=100):
     def __init__(self, num_firms, p, h, c, initial_inventory, poisson_lambda=10, max_steps=100):
         """
         初始化供应链管理仿真环境。
@@ -591,4 +591,3 @@ if __name__ == "__main__":
     
     # 绘制测试结果
     plot_test_results(test_scores, inventory_history, orders_history, demand_history, satisfied_demand_history)
-    
