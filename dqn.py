@@ -123,27 +123,18 @@ class Env:
 # 定义Q网络模型
 class QNetwork(nn.Module):
     def __init__(self, state_size, action_size):
-        """
-        初始化Q网络
-        
-        :param state_size: 状态空间维度
-        :param action_size: 动作空间维度
-        """
         super(QNetwork, self).__init__()
-        self.fc1 = nn.Linear(state_size, 64)
-        self.fc2 = nn.Linear(64, 64)
-        self.fc3 = nn.Linear(64, action_size)
+        # 增加网络层数和神经元数量
+        self.fc1 = nn.Linear(state_size, 128)
+        self.fc2 = nn.Linear(128, 128)
+        self.fc3 = nn.Linear(128, 64)
+        self.fc4 = nn.Linear(64, action_size)
         
     def forward(self, state):
-        """
-        前向传播
-        
-        :param state: 输入状态
-        :return: 各动作的Q值
-        """
         x = torch.relu(self.fc1(state))
         x = torch.relu(self.fc2(x))
-        return self.fc3(x)
+        x = torch.relu(self.fc3(x))
+        return self.fc4(x)
 
 # 定义经验回放缓冲区
 class ReplayBuffer:
