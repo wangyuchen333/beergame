@@ -579,7 +579,7 @@ if __name__ == "__main__":
     
     # 训练DQN智能体
     scores = train_dqn(env, agent, num_episodes=2000, max_t=max_steps, eps_start=1.0, eps_end=0.01, eps_decay=0.995)
-    plt.rcParams['font.sans-serif'] = ['Arial Unicode MS']  # 或 'STHeiti', 'SimHei'
+    matplotlib.rcParams['font.sans-serif'] = ['Arial Unicode MS']  # 或 'STHeiti', 'SimHei'
     plt.rcParams['axes.unicode_minus'] = False  # 绘图显示负号
 
     # 绘制训练结果
